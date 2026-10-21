@@ -1,0 +1,5 @@
+<automation_task version="1.0">
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point unit="on/off" default="1" readonly="false" type="bool" status="-" name="output" action="write" id="0" caption="Output">0</point>
+</device>
+</automation_task>

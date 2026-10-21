@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config version="0.0.1">
+<stage type="AverageStage" name="average" caption="Measurement">
+<value unit="[ms]" type="double" precision="0" name="integrationTime" caption="Integration time" min="10.000000" max="65535.000000">10000.000000</value>
+<value unit="" type="int" name="repeatCount" caption="Repeat" min="1" max="65000">1</value>
+<value type="bool" name="autoIntegration" caption="Auto">true</value>
+<value unit="[ms]" type="double" precision="0" name="maximumIntegrationTime" caption="Maximum integration time" min="10.000000" max="10000.000000">10000.000000</value>
+<value unit="[Hz]" type="double" name="flickerFrequency" caption="Flicker frequency" min="0.000000" max="10000.000000">1000.000000</value>
+</stage>
+<stage type="TrigsStage" name="trigs" caption="Trigger and delay">
+<value unit="[ms]" type="uint" name="trigInTime" caption="Measurement delay" min="0" max="100000">10</value>
+<value type="bool" name="trigInEnabled" caption="Trigger in enabled">false</value>
+<value type="bool" name="trigOutEnabled" caption="Trigger out enabled">false</value>
+<value unit="[ms]" type="int" name="trigOutTime" caption="Trigger out delay" min="0" max="100000">10</value>
+<value unit="[ms]" type="uint" name="trigOutDelay" caption="Trigger out duration" min="10" max="100000">10</value>
+</stage>
+<global>
+<value type="QString" name="Device" caption="Device" single="true">
+<option caption="Spectis Touch 1104N070">Spectis Touch 1104N070</option>
+</value>
+<value type="QString" name="measuringHeads" caption="Measuring head"/>
+<value type="QString" name="Calibration" caption="Calibration">
+<option caption="Select calibration..">Select calibration..</option>
+<option caption="Dark Current">Dark Current</option>
+Select calibration..</value>
+</global>
+</config>

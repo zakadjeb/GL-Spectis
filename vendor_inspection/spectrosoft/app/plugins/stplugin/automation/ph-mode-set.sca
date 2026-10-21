@@ -1,0 +1,5 @@
+<automation_task version="1.0">
+<device name="GLFastPhotometer" plugin_name="ga_fastphotometer" id="0">
+ <point name="flicker_mode" status="Mode" id="10" action="write" caption="Flicker mode (1-9)" unit="" type="int" readonly="false" default="0">%1</point>
+</device>
+</automation_task>

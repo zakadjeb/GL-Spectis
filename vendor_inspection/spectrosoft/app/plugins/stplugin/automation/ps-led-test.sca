@@ -1,0 +1,38 @@
+<automation_task version="1.0">
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point unit="on/off" default="1" readonly="false" type="bool" status="-" name="output" action="write" id="0" caption="Output">0</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point unit="[0-3]" default="3" readonly="false" type="int" status="-" name="presets" action="write" id="1" caption="Preset Selection">1</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point unit="A" default="0" readonly="false" type="float" status="-" name="programmedCurrent" action="write" id="2" caption="Programmed Current">0.4</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point unit="V" default="0" readonly="false" type="float" status="-" name="programmedVoltage" action="write" id="4" caption="Programed Voltage">36.6</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point unit="on/off" default="1" readonly="false" type="bool" status="-" name="output" action="write" id="0" caption="Output">1</point>
+</device>
+
+<device plugin_name="Program" name="Program" id="1010">
+ <point unit="ms" default="1000" type="int" status="-" name="Delay" action="write" writeonly="true" id="10" caption="Delay">2000</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point unit="V" default="0" readonly="true" type="float" status="Voltage [V]" name="realVoltage" action="read" id="5" caption="Real Voltage">0</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point unit="A" default="0" readonly="true" type="float" status="Current [A]" name="realCurrent" action="read" id="3" caption="Real Current">0</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point unit="on/off" default="1" readonly="false" type="bool" status="-" name="output" action="write" id="0" caption="Output">0</point>
+</device>
+
+</automation_task>

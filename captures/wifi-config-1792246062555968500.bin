@@ -1,0 +1,61 @@
+<notification type="info">Connection: Client : 172.20.10.7</notification><hello server_name="Spectis 1.0 touch" version="3.0.51" flicker="true" glftp="true" glsftp="true" /><?xml version="1.0" encoding="UTF-8"?>
+<config version="0.0.1">
+<stage type="AverageStage" name="average" caption="Measurement">
+<value type="double" name="integrationTime" caption="Integration time" precision="3" min="2.600000" max="200000.000000" unit="[ms]">10000.000000</value>
+<value type="int" name="repeatCount" caption="Repeat" min="1" max="250" unit="">5</value>
+<value type="bool" name="autoIntegration" caption="Auto">true</value>
+<value type="double" name="maximumIntegrationTime" caption="Maximum integration time" precision="3" min="2.600000" max="10000.000000" unit="[ms]">10000.000000</value>
+<value type="double" name="flickerFrequency" caption="Flicker frequency"  min="0.000000" max="10000.000000" unit="[Hz]">0.000000</value>
+</stage>
+<stage type="TrigsStage" name="trigs" caption="Trigger and delay">
+<value type="uint" name="trigInTime" caption="Measurement delay" min="0" max="100000" unit="[ms]">0</value>
+<value type="bool" name="trigInEnabled" caption="Trigger in enabled">false</value>
+<value type="bool" name="trigOutEnabled" caption="Trigger out enabled">false</value>
+<value type="int" name="trigOutTime" caption="Trigger out delay" min="0" max="100000" unit="[ms]">0</value>
+<value type="uint" name="trigOutDelay" caption="Trigger out duration" min="0" max="100000" unit="[ms]">0</value>
+<value type="bool" name="trigReversed" caption="Trigger logic reversed">false</value>
+</stage>
+<global>
+<value type="QString" name="Device" caption="Device" single="true">
+<option caption="Spectis Touch 18H00142">Spectis Touch 18H00142</option>
+</value>
+<value type="QString" name="measuringHeads" caption="Measuring head">
+<option caption="">1110-A5076BBB725</option>
+1110-A5076BBB725</value>
+<value type="QString" name="Calibration" caption="Calibration">
+<option caption="Select calibration..">Select calibration..</option>
+<option caption="Dark Current">Dark Current</option>
+Select calibration..</value>
+<value caption="Flicker mode" type="QString" name="Flicker mode"><option caption="12 kHz - 100 ms">12 kHz - 100 ms</option><option caption="6 kHz - 250 ms">6 kHz - 250 ms</option><option caption="3 kHz - 500 ms">3 kHz - 500 ms</option><option caption="1.5 kHz - 1 s">1.5 kHz - 1 s</option><option caption="800 Hz - 2 s">800 Hz - 2 s</option><option caption="400 Hz - 4 s">400 Hz - 4 s</option><option caption="200 Hz - 8 s">200 Hz - 8 s</option><option caption="100 Hz - 16 s">100 Hz - 16 s</option><option caption="50 Hz - 32 s">50 Hz - 32 s</option><option caption="JA 10 - 1 s">JA 10 - 1 s</option><option caption="PstLM - 180 s">PstLM - 180 s</option>100 Hz - 16 s</value></global>
+</config>
+<?xml version="1.0" encoding="UTF-8"?>
+<config version="0.0.1">
+<stage type="AverageStage" name="average" caption="Measurement">
+<value type="double" name="integrationTime" caption="Integration time" precision="3" min="2.600000" max="200000.000000" unit="[ms]">10000.000000</value>
+<value type="int" name="repeatCount" caption="Repeat" min="1" max="250" unit="">5</value>
+<value type="bool" name="autoIntegration" caption="Auto">true</value>
+<value type="double" name="maximumIntegrationTime" caption="Maximum integration time" precision="3" min="2.600000" max="10000.000000" unit="[ms]">10000.000000</value>
+<value type="double" name="flickerFrequency" caption="Flicker frequency"  min="0.000000" max="10000.000000" unit="[Hz]">0.000000</value>
+</stage>
+<stage type="TrigsStage" name="trigs" caption="Trigger and delay">
+<value type="uint" name="trigInTime" caption="Measurement delay" min="0" max="100000" unit="[ms]">0</value>
+<value type="bool" name="trigInEnabled" caption="Trigger in enabled">false</value>
+<value type="bool" name="trigOutEnabled" caption="Trigger out enabled">false</value>
+<value type="int" name="trigOutTime" caption="Trigger out delay" min="0" max="100000" unit="[ms]">0</value>
+<value type="uint" name="trigOutDelay" caption="Trigger out duration" min="0" max="100000" unit="[ms]">0</value>
+<value type="bool" name="trigReversed" caption="Trigger logic reversed">false</value>
+</stage>
+<global>
+<value type="QString" name="Device" caption="Device" single="true">
+<option caption="Spectis Touch 18H00142">Spectis Touch 18H00142</option>
+</value>
+<value type="QString" name="measuringHeads" caption="Measuring head">
+<option caption="">1110-A5076BBB725</option>
+1110-A5076BBB725</value>
+<value type="QString" name="Calibration" caption="Calibration">
+<option caption="Select calibration..">Select calibration..</option>
+<option caption="Dark Current">Dark Current</option>
+Select calibration..</value>
+<value caption="Flicker mode" type="QString" name="Flicker mode"><option caption="12 kHz - 100 ms">12 kHz - 100 ms</option><option caption="6 kHz - 250 ms">6 kHz - 250 ms</option><option caption="3 kHz - 500 ms">3 kHz - 500 ms</option><option caption="1.5 kHz - 1 s">1.5 kHz - 1 s</option><option caption="800 Hz - 2 s">800 Hz - 2 s</option><option caption="400 Hz - 4 s">400 Hz - 4 s</option><option caption="200 Hz - 8 s">200 Hz - 8 s</option><option caption="100 Hz - 16 s">100 Hz - 16 s</option><option caption="50 Hz - 32 s">50 Hz - 32 s</option><option caption="JA 10 - 1 s">JA 10 - 1 s</option><option caption="PstLM - 180 s">PstLM - 180 s</option>100 Hz - 16 s</value></global>
+</config>
+<nop />

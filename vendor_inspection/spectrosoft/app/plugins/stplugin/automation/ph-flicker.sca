@@ -1,0 +1,14 @@
+<automation_task version="1.0">
+<device id="0" plugin_name="ga_fastphotometer" name="GLFastPhotometer">
+ <point type="int" id="10" default="0" name="flicker_mode" readonly="false" caption="Flicker mode (1-11)" unit="" status="Mode" action="read">1</point>
+</device>
+<device id="0" plugin_name="ga_fastphotometer" name="GLFastPhotometer">
+ <point type="double" id="12" default="0" name="flicker_mode_frequency" readonly="true" caption="Flicker mode sampling frequency" unit="" status="Frequency" action="read">0</point>
+</device>
+<device id="0" plugin_name="ga_fastphotometer" name="GLFastPhotometer">
+ <point type="double" id="14" default="0" name="flicker_mode_time_ms" readonly="true" caption="Flicker mode sampling time in milliseconds" unit="" status="Time" action="read">0</point>
+</device>
+<device id="0" plugin_name="ga_fastphotometer" name="GLFastPhotometer">
+ <point type="double[]" id="15" default="0" name="flicker_mode_samples" readonly="true" caption="Array of flicker mode samples" unit="lx" status="Array" action="read">0</point>
+</device>
+</automation_task>

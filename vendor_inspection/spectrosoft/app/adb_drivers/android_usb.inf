@@ -1,0 +1,111 @@
+;/*++
+;
+;Abstract:
+;    Installation inf for the Android USB Bulk device
+;
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGuid={F72FE0D4-CBCB-407d-8814-9ED673D0DD6B}
+Provider=%GOOG%
+DriverVer=1/29/2009,1.0.0010.00000
+CatalogFile=android.cat
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=AndroidUsbClassReg
+
+[AndroidUsbClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Device section =====================
+
+[Manufacturer]
+%MfgName%=Google,NTx86,NTamd64
+
+; For XP and later
+[Google.NTx86]
+%DeviceDescRelease%=androidusb.Dev, USB\Class_ff&SubClass_42
+%DeviceDescRelease%=androidusb.Dev, USB\VID_1004&PID_6171&MI_01
+%DeviceDescRelease%=androidusb.Dev, USB\VID_1004&PID_618E_ADBInterface
+
+
+; For AMD64 and later
+[Google.NTamd64]
+%DeviceDescRelease%=androidusb.Dev, USB\Class_ff&SubClass_42
+%DeviceDescRelease%=androidusb.Dev, USB\VID_1004&PID_6171&MI_01
+%DeviceDescRelease%=androidusb.Dev, USB\VID_1004&PID_618E_ADBInterface
+
+[androidusb.Dev.NT]
+CopyFiles=androidusb.Files.Ext
+
+[androidusb.Dev.NT.Services]
+Addservice = androidusb, 0x00000002, androidusb.AddService
+
+[androidusb.AddService]
+DisplayName    = %androidusb.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\androidusb.sys
+AddReg         = androidusb.AddReg
+LoadOrderGroup = Base
+
+[androidusb.AddReg]
+HKR,"Parameters","MaximumTransferSize",0x10001,4096
+HKR,"Parameters","DebugLevel",0x10001,2
+HKR, Parameters\Wdf, VerboseOn,       0x00010001, 1
+HKR, Parameters\Wdf, VerifierOn,      0x00010001, 1
+HKR, Parameters\Wdf, DbgBreakOnError, 0x00010001, 1
+
+[androidusb.Files.Ext]
+androidusb.sys
+
+[SourceDisksNames.x86]
+1=%Disk_Description%,"androidusb.sys",,\i386
+
+[SourceDisksNames.amd64]
+1=%Disk_Description%,"androidusb.sys",,\amd64
+
+[SourceDisksFiles]
+androidusb.sys = 1
+
+;-------------- WDF Coinstaller installation
+[DestinationDirs]
+CoInstaller_CopyFiles = 11
+
+[androidusb.Dev.NT.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+wdfcoinstaller01007.dll
+
+[SourceDisksFiles]
+wdfcoinstaller01007.dll=1 ; make sure the number matches with SourceDisksNames
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "wdfcoinstaller01007.dll,WdfCoInstaller"
+
+[androidusb.Dev.NT.Wdf]
+KmdfService = androidusb, androidusb_wdfsect
+
+[androidusb_wdfsect]
+KmdfLibraryVersion = 1.7
+
+;---------------------------------------------------------------;
+
+[Strings]
+GOOG            = "Google, Inc"
+MfgName         = "Google, Inc"
+Disk_Description= "ADB Interface Installation Disk"
+androidusb.SvcDesc = "ADB Interface Driver"
+ClassName       = "ADB Interface"
+DeviceDescRelease="Android Original ADB Interface"

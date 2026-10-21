@@ -1,0 +1,50 @@
+<automation_task version="1.0">
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point readonly="false" name="output" default="1" id="0" unit="on/off" status="-" action="write" caption="Output" type="bool">0</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point readonly="false" name="presets" default="3" id="1" unit="[0-3]" status="-" action="write" caption="Preset Selection" type="int">0</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point readonly="false" name="programmedVoltage" default="0" id="4" unit="V" status="-" action="write" caption="Programed Voltage" type="float">0</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point readonly="false" name="programmedCurrent" default="0" id="2" unit="A" status="-" action="write" caption="Programmed Current" type="float">0.4</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point readonly="false" name="programmedVoltage" default="0" id="4" unit="V" status="-" action="write" caption="Programed Voltage" type="float">36.6</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point readonly="false" name="output" default="1" id="0" unit="on/off" status="-" action="write" caption="Output" type="bool">1</point>
+</device>
+
+<device plugin_name="Program" name="Program" id="1010">
+ <point writeonly="true" name="Delay" default="1000" id="10" unit="ms" status="-" action="write" caption="Delay" type="int">2000</point>
+</device>
+
+<device plugin_name="Spectrometer" name="Spectrometer" id="1000">
+ <point writeonly="true" name="Repeat" default="1" id="20" unit="count" status="-" action="write" caption="Repeat" type="int">%1</point>
+</device>
+
+<device plugin_name="Spectrometer" name="Spectrometer" id="1000">
+ <point writeonly="true" name="Integration time" default="1000" id="10" unit="ms" status="-" action="write" caption="Integration time" type="float">%2</point>
+</device>
+
+<device plugin_name="Spectrometer" name="Spectrometer" id="1000">
+ <point writeonly="true" name="Auto" default="true" id="30" unit="" status="-" action="write" caption="Auto" type="bool">1</point>
+</device>
+
+<device plugin_name="Spectrometer" name="Spectrometer" id="1000">
+ <point name="Measure" id="40" unit="" status="-" action="read" mode="calibration_sphere" caption="Measure" type="trigger">0</point>
+</device>
+
+<device plugin_name="ga_manson_ssp" name="Manson SSP DC Power Supply" id="0">
+ <point readonly="false" name="output" default="1" id="0" unit="on/off" status="-" action="write" caption="Output" type="bool">0</point>
+</device>
+
+</automation_task>

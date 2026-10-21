@@ -1,0 +1,58 @@
+ <automation_task version="1.0">
+            <device id="0" name="Manson SSP DC Power Supply" plugin_name="ga_manson_ssp">
+             <point type="bool" caption="Output" id="0" status="-" action="write" name="output" default="1" unit="on/off" readonly="false">0</point>
+            </device>
+
+            <device id="0" name="Manson SSP DC Power Supply" plugin_name="ga_manson_ssp">
+             <point type="int" caption="Preset Selection" id="1" status="-" action="write" name="presets" default="3" unit="[0-3]" readonly="false">0</point>
+            </device>
+
+            <device id="0" name="Manson SSP DC Power Supply" plugin_name="ga_manson_ssp">
+             <point type="float" caption="Programed Voltage" id="4" status="-" action="write" name="programmedVoltage" default="0" unit="V" readonly="false">0</point>
+            </device>
+
+            <device id="0" name="Manson SSP DC Power Supply" plugin_name="ga_manson_ssp">
+             <point type="float" caption="Programmed Current" id="2" status="-" action="write" name="programmedCurrent" default="0" unit="A" readonly="false">15</point>
+            </device>
+
+            <device id="0" name="Manson SSP DC Power Supply" plugin_name="ga_manson_ssp">
+             <point type="float" caption="Programed Voltage" id="4" status="-" action="write" name="programmedVoltage" default="0" unit="V" readonly="false">15</point>
+            </device>
+
+            <device id="0" name="Manson SSP DC Power Supply" plugin_name="ga_manson_ssp">
+             <point type="bool" caption="Output" id="0" status="-" action="write" name="output" default="1" unit="on/off" readonly="false">1</point>
+            </device>
+
+            <device id="1010" name="Program" plugin_name="Program">
+             <point type="int" caption="Delay" id="10" status="-" action="write" name="Delay" writeonly="true" default="1000" unit="ms">3000</point>
+            </device>
+			
+			<device id="0" name="Manson SSP DC Power Supply" plugin_name="ga_manson_ssp">
+             <point type="float" caption="Programmed Current" id="2" status="-" action="write" name="programmedCurrent" default="0" unit="A" readonly="false">8.5</point>
+            </device>
+
+            <device id="0" name="Manson SSP DC Power Supply" plugin_name="ga_manson_ssp">
+             <point type="float" caption="Programed Voltage" id="4" status="-" action="write" name="programmedVoltage" default="0" unit="V" readonly="false">16</point>
+            </device>
+			
+			<device id="1010" name="Program" plugin_name="Program">
+             <point type="int" caption="Delay" id="10" status="-" action="write" name="Delay" writeonly="true" default="1000" unit="ms">2000</point>
+            </device>
+
+            <device id="1000" name="Spectrometer" plugin_name="Spectrometer">
+             <point caption="Repeat" type="int" id="20" status="-" action="write" name="Repeat" writeonly="true" default="1" unit="count">%1</point>
+            </device>
+
+            <device id="1000" name="Spectrometer" plugin_name="Spectrometer">
+             <point type="bool" caption="Auto" id="30" status="-" action="write" name="Auto" writeonly="true" default="true" unit="">1</point>
+            </device>
+
+            <device id="1000" name="Spectrometer" plugin_name="Spectrometer">
+             <point type="trigger" caption="Measure" id="40" status="-" action="read" mode="calibration_sphere" name="Measure" unit="">1</point>
+            </device>
+
+            <device id="0" name="Manson SSP DC Power Supply" plugin_name="ga_manson_ssp">
+             <point type="bool" caption="Output" id="0" status="-" action="write" name="output" default="1" unit="on/off" readonly="false">0</point>
+            </device>
+
+            </automation_task>
