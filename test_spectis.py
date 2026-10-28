@@ -1,6 +1,7 @@
 import socket
 import threading
 import unittest
+from unittest.mock import patch
 from spectis import Spectis, parse_measurement
 
 XML = b'''<measurement><status>
@@ -40,7 +41,11 @@ class ProtocolTests(unittest.TestCase):
         device = Spectis('127.0.0.1', listener.getsockname()[1])
         try:
             device.connect()
-            result = device.measure()
+            with patch('pylsl.local_clock', return_value=123456.123456789), patch('spectis.time.time', return_value=1793100000.123456):
+                result = device.measure()
+            self.assertEqual(result.received_at, 123456.123456789)
+            self.assertEqual(result.received_unix, 1793100000.123456)
+            self.assertTrue(result.clock_session)
             self.assertEqual(result.values, [-0.1, 2.3])
             self.assertEqual(result.info.wavelengths_nm, (400, 500))
             self.assertIn(b'repeat_count="3"', requests[1])

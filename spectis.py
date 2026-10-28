@@ -3,9 +3,12 @@ import re
 import socket
 import time
 import math
+import uuid
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from bridge import DeviceInfo, validate_info, validate_spectrum
+
+CLOCK_SESSION = str(uuid.uuid4())
 
 
 @dataclass
@@ -17,6 +20,8 @@ class Measurement:
     received_at: float
     results: dict = field(default_factory=dict)
     y_unit: str = 'unknown'
+    received_unix: float | None = None
+    clock_session: str = ''
 
 
 def parse_measurement(raw, received_at):
@@ -96,7 +101,10 @@ class Spectis:
         raw = self.read_element('measurement', seconds*repeats+30, cancel)
         import pylsl
         received_at = pylsl.local_clock()
+        received_unix = time.time()
         result = parse_measurement(raw, received_at)
+        result.received_unix = received_unix
+        result.clock_session = CLOCK_SESSION
         if int(result.status.get('repeat count', -1)) != repeats:
             raise ValueError('Instrument did not apply the requested repeat count')
         if abs(float(result.status.get('integration time', -1))-round(seconds*1e6)) > 1:

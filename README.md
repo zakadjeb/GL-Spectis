@@ -50,6 +50,9 @@ but failed collection does not automatically resume or replay measurements.
 ## Plot, history and color
 
 The dark-blue plot has labelled x/y ticks, major/minor gray grids and physical units.
+A compact color strip below the x-axis aligns approximate visible colors with the
+wavelength scale. Gray marks wavelengths outside the displayed visible range
+(380–780 nm). This is an orientation guide, not a calibrated color rendering.
 The panel to its right lists all completed measurements for this app session and
 numeric spectral/CIE values for the selection. Click a measurement to browse it
 without interrupting collection. **View the last** returns to following new data.
@@ -59,8 +62,72 @@ Ctrl/Shift-select multiple measurements to plot the arithmetic mean and shaded
 across completed measurements; it is not a confidence interval. A single result
 has no SEM. The instrument's internal repeats are not counted as separate samples.
 Only measurements with identical device identity, units and wavelength grids can
-be combined. **Export selected** writes wavelength, mean/value, SEM and n to CSV.
+be combined in the preview. **Export selected** saves each selected trial separately,
+even when the plot shows their mean. Trials are concatenated vertically: one row
+per wavelength, with a trial ID and repeated trial metadata. Different wavelength
+grids/devices can be exported together, but cannot be averaged together.
 History is in memory; export needed data before closing.
+
+**Remove selected** removes the highlighted trials from the current history.
+**Clear all** empties the history, plot and color preview. Export anything you want
+to keep first. These controls do not delete saved CSV files or stop acquisition or
+LSL. After clearing, the next completed measurement appears automatically.
+
+## Saving and reopening trials
+
+The **Visualization** tab controls how selected spectra appear. Choose **Mean spectrum
+with ±1 standard error** or **Individual spectra overlaid**, then click **Apply
+visualization**. Overlay legends identify trial numbers in the history; the values
+table and color preview still summarize the selection. Select compatible measurements
+with Ctrl/Shift to compare them.
+
+Enable **Fix the y-axis range** and enter a minimum and maximum in the displayed
+spectral units to retain the same scale across measurements. Values outside the
+range are clipped on screen only. Uncheck it and apply to restore automatic scaling.
+Color buttons change the plot background, mean line/SEM shading, and six overlay
+line colors (cycled by trial number). Axis text and grids adapt to the background.
+These settings do not change CSV or LSL data.
+
+Use **Save settings** in Visualization or Settings & LSL to save the current
+connection IP, exposure, repeats, plot mode, y-axis limits and colors to
+**settings.txt** beside the launcher. Saving also applies the visualization edits.
+**Load settings** restores the file; stop collection first, and click **Connect /
+check link** if the IP changed. The app reads this file automatically at startup.
+Collection and LSL start/stop state are never saved. Apply visualization changes
+only the current session until you save them.
+
+The small text file uses readable JSON. You can edit it while the app is closed;
+colors are six-digit hex codes and plot_mode is `mean` or `overlay`. Invalid files
+are reported without overwriting them; startup uses defaults if loading fails.
+
+Select trials with Ctrl/Shift and click **Export selected**. The CSV includes every
+selected spectrum, wavelength and physical unit, device model/serial, all eight
+CIE fields, illuminance in lux when the instrument reports Y in lx/lux, and the
+normalized approximate sRGB hex color used for the preview. Missing values are blank;
+Y in other units is preserved without mislabelling it as lux. Instrument results
+and status metadata are also preserved in JSON columns. Raw device XML is not saved.
+
+`lsl_timestamp_s` is the exact host receipt timestamp used by both LSL streams,
+whether or not streaming was enabled. It marks completion/receipt, not exposure
+start. New acquisitions also save `received_unix_s` and `received_utc`, captured
+immediately after reading the LSL clock, and a `clock_session` identifier. UTC follows
+the computer's system clock; it is not independently verified against a time server.
+LSL timestamps are monotonic seconds, not UTC or a universal network clock. Aligning
+different computers requires LSL clock corrections (e.g. recorded with LabRecorder
+in XDF); the CSV does not contain receiver clock corrections. Keep XDF recordings
+when cross-computer synchronization is required. Timing reference:
+https://labstreaminglayer.readthedocs.io/info/time_synchronization.html
+
+**Open CSV** appends saved trials to the history, labels them `[file]`, and selects
+them for preview. Select one to see its spectrum/color, or several compatible trials
+to see mean ± SEM. Collection continues, but the preview stays on your selected
+history until **View the last** returns to the latest live trial (or last loaded
+trial if no live measurement exists). Loading never republishes old data to LSL.
+Re-exporting preserves original timestamps. Invalid/incomplete files are rejected
+before adding trials. Keep the CSV columns and metadata intact for reopening.
+
+Old mean/SEM-only exports cannot restore individual trials, timestamps or color
+values because that information was not saved. They are rejected with an explanation.
 
 CIE values are read from the instrument's results: x2, y2, Y2, u2, v2, u2', v2'
 and CCT. The swatch is a normalized, gamut-clipped sRGB approximation from xy;
@@ -109,6 +176,7 @@ No calibration adjustments are performed.
 - `spectis.py`: device protocol and XML parsing.
 - `streaming.py`, `bridge.py`: synchronized CIE/spectrum LSL and older synthetic demo.
 - `analysis_tools.py`: statistics and screen-color conversion.
+- `measurement_csv.py`: complete trial export and validated CSV loading.
 - `probe_wifi.py`, `probe_usb.py`: connection diagnostics.
 
 Historical recovery notes and backups remain in RECOVERY.md, USB_FINDINGS.md,

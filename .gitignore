@@ -1,0 +1,5 @@
+__pycache__/
+.venv/
+vendor_inspection/
+captures/
+recovery_backup/
